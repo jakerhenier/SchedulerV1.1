@@ -1,0 +1,1 @@
+Feature request: Customizable time for history storage

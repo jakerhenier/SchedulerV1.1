@@ -1,0 +1,1002 @@
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+
+html, body {
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 100%;
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+    background-color: #eeeeee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #333333;
+    width: fit-content;
+    text-decoration: none;
+    transition: all .1s linear;
+}
+
+p {
+    margin: 0;
+}
+
+.sandbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/******LOGIN PAGE PROPERTIES******/
+.dialog_login {
+    width: 5in;
+    height: 5in;
+    align-self: center;
+    background-color: #ffffff;
+    border-radius: .25rem;
+    box-shadow: 0 .25rem 1rem .5rem rgba(0,0,0,.05);
+}
+
+/********END OF PAGE PROPERTIES********/
+
+.sandbox-item {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.sandbox-left_toolbar {
+    padding: 1rem;
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+}
+
+#username {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.sandbox-left_list {
+    width: 100%;
+    height: 90vh;
+    overflow-y: auto;
+}
+
+.list-item {
+    width: 100%;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.list-item:hover {
+    background-color: rgba(255, 248, 144, 0.267);
+}
+
+/* PROPERTIES FOR THE LEFT
+    HALF OF THE SANDBOX */
+
+.left {
+    width: 35vw;
+    background-color: #ffffff;
+    border-right: 1px solid #cccccc;
+    box-shadow: 0 0 .25rem .25rem rgba(0, 0, 0, .1);
+}
+
+.toolbar-history {
+    width: 1.75rem;
+    height: 1.75rem;
+    /*background-color: #999999;*/
+    position: relative;
+    float: right;
+    margin-top: .5rem;
+    margin-right: 1.25rem;
+    cursor: pointer;
+}
+
+.histbt {
+    position: absolute;
+    border: 3px solid #aaaaaa;
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.arrow_box {
+    border: none;
+    width: auto;
+    height: 10px;
+    overflow: hidden;
+    background-color: #ffffff;
+    right: -.3rem;
+    top: .8rem;
+    z-index: 1;
+}
+
+.arrow {
+    border-top: 7px solid #aaaaaa;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.hand1,
+.hand2 {
+    border: none;
+    width: 3px;
+    height: 10px;
+    background-color: #aaaaaa;
+}
+
+.hand1 {
+    top: .37rem;
+    left: .76rem;
+}
+
+.hand2 {
+    height: 8px;
+    transform: rotate(90deg);
+    top: .7rem;
+    left: .57rem;
+}
+
+.toolbar-addbt {
+    position: relative;
+    margin-top: .55rem;
+    float: right;
+    width: 2.3rem;
+    height: 2.3rem;
+    align-self: center;
+    cursor: pointer;
+    transition: all .1s ease-out;
+}
+
+.addbt {
+    height: 1.7rem;
+    width: 5px;
+    background-color: #aaaaaa;
+    position: absolute;
+    transition: all .1s linear;
+}
+
+.toolbar-addbt:hover .addbt {
+    background-color: #e4d236;
+}
+
+.vertical-line {
+    left: 38%;
+}
+
+.horizontal-line {
+    left: 38%;
+    transform: rotate(90deg);
+}
+
+.list-item {
+    width: 100%;
+    position: relative;
+}
+
+/* Post preview properties */
+
+.post-preview {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview {
+
+}
+
+.text {
+    width: 70%;
+}
+
+.text > p { 
+    overflow: hidden;
+}
+
+.image {
+    width: 5rem;
+    height: 5rem;
+    background-color: #e4d236;
+    position: absolute;
+    right: 0;
+}
+
+/* Post interact properties */
+
+.post-interact {
+    width: 100%;
+    height: 2rem;
+    margin-top: .75rem;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.schedule {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+
+.schedule-icon {
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+}
+
+.schedule-text {
+
+}
+
+#schedule {
+    margin: .5rem 0 0 .15rem;
+    font-weight: bold;
+}
+
+.icon_cal {
+    border: .1rem solid #e4d236;
+    position: absolute;
+}
+
+.spring {
+    width: 6px;
+    height: 5px;
+}
+
+.left-spr {
+    left: 3px;
+    top: 5px;
+}
+
+.right-spr {
+    right: 9px;
+    top: 5px;
+}
+
+.cal-face {
+    width: 1.1rem;
+    height: .8rem;
+    left: 4px;
+    bottom: 4px;
+}
+
+.cal-head {
+    width: 1.6rem;
+    height: 1.5rem;
+    border-radius: .2rem;
+    bottom: 0;
+}
+
+/*ribbon calendar*/
+
+.ribbon-cal {
+    position: absolute;
+    top: .2rem;
+    right: 1.5rem;
+}
+
+.icon_ribbon-cal {
+    border: .1rem solid #484848;
+    position: absolute;
+}
+
+/* * * * * * * * */
+
+.menu {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 5px;
+    height: 1.5rem;
+    opacity: .6;
+}
+
+.menu:hover {
+    opacity: 1;
+}
+
+.dot {
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background-color: #999999;
+    cursor: pointer;
+}
+
+.mid {
+    margin: 2px 0;
+}
+
+/* PROPERTIES FOR THE RIGHT
+    HALF OF THE SANDBOX */
+.right {
+    width: 64vw;
+    position: relative;
+    overflow-y: auto;
+}
+
+
+.close-button_box {
+    position: absolute;
+    top: .2rem;
+    right: 1.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: .25rem;
+    cursor: pointer;
+    z-index: 3;
+    display: none;
+    transition: all .1s linear;
+}
+
+.close-button_box:hover {
+    background-color: rgba(200,0,0,.6);
+}
+
+.close-button_box:hover .ex {
+    background-color: #ffffff;
+}
+
+.close-button {
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+}
+
+.ex {
+    width: 2px;
+    height: 20px;
+    background-color: #999999;
+    position: absolute;
+    right: 1.75rem;
+    top: .5rem;
+}
+
+.left-slant {
+    transform: rotate(45deg);
+}
+
+.right-slant {
+    transform: rotate(-45deg);
+}
+
+.right {
+    width: 65vw;
+    height: 100%;
+    display: grid;
+}
+
+/*dialog properties*/
+.sandbox-popup {
+    position: fixed;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0,0,0,.75);
+    z-index: 4;
+    display: none;
+    align-content: center;
+    justify-content: center;
+}
+
+.popup_dialog {
+    width: 400px;
+    height: 130px;
+    padding: 1.5rem 2rem;
+    background-color: #ffffff;
+    border-radius: .25rem;
+    position: relative;
+}
+
+.popup_dialog > p {
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.dialog-button_box {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+    padding: 0 2rem;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.decide_bt {
+    width: 48%;
+    padding: .75rem;
+    text-align: center;
+    border: 2px solid #e4d236;
+    border-radius: .25rem;
+    transition: all .07s linear;
+    cursor: pointer;
+}
+
+.decide_bt:hover {
+    background-color: #e4d236;
+}
+
+.empty-prompt {
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    z-index: 1;
+}
+
+.empty-prompt_icon {
+    width: 5rem;
+    height: 5rem;
+    margin: auto;
+    position: relative;
+}
+
+.icon {
+    border-color: #888888;
+    background-color: #888888;
+    position: absolute;
+}
+
+.circle {
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    border: 5px solid #888888;
+    background: none;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    left: 46%;
+    top: 25%;
+}
+
+.body {
+    width: 5px;
+    height: 30px;
+    left: 46%;
+    top: 40%;
+}
+
+.empty-prompt > p {
+    width: 15rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.modal-pages {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* PROPERTIES FOR ADDING ENTRY */
+
+h2 {
+    text-align: center;
+}
+
+.add-entry,
+.edit-entry {
+    display: none;
+    transition: all .1s linear;
+}
+
+.fields-box {
+    width: 562px;
+    margin: auto;
+    padding: 2rem 0 5rem;
+}
+
+.field-item_box {
+    border: 2px solid #dddddd;
+    border-radius: .25rem;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    transition: all .07s linear;
+}
+
+.field-item_box:hover {
+    border-color: rgba(238, 223, 86, 0.8);
+}
+
+.input-text {
+    margin-bottom: .5rem;
+    background-color: #dddddd;
+    width: fit-content;
+    padding: .25rem .5rem;
+    transition: all .07s linear;
+}
+
+.field-item_box:hover .input-text {
+    background-color: #e4d236;
+}
+
+#caption {
+    width: 100%;
+    height: 30%;
+    border: none;
+    resize: none;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 100%;
+    transition: all 0.1s linear;
+}
+
+.img-add_box {
+    width: 100%;
+    height: 5rem;
+    padding-top: .5rem;
+}
+
+.img-upload {
+    width: 100%;
+    text-align: center;
+    padding: .5rem 1rem;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    transition: all .07s linear;
+}
+
+.img-upload:hover {
+    border-left: 1px solid #e4d236;
+    border-right: 1px solid #e4d236;
+    border-top: 1px solid #e4d236;
+    background-color: #e4d236;
+}
+
+input[type=file] {
+    display: none;
+}
+
+.add-img_icon {
+    width: 3px;
+    height: 1rem;
+    background-color: #555555;
+    position: absolute;
+    left: 38%;
+    margin-top: .16rem;
+}
+
+.img-prev_box {
+    width: 100%;
+    height: 3rem;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+
+.pages-list {
+    width: 100%;
+    height: 15rem;
+    overflow: auto;
+}
+
+input[type=date] {
+    width: 49%;
+    padding: .5rem 1rem;
+    border: 1px solid #dddddd;
+    font-family: inherit;
+    font-size: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator,
+input[type=date]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type=number] {
+    width: 15%;
+    padding: .58rem 1rem;
+    border: 1px solid #dddddd;
+    font-family: inherit;
+    font-size: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+select {
+    width: 18.6%;
+    padding: .5rem 1rem;
+    border: 1px solid #dddddd;
+    font-family: inherit;
+    font-size: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+option {
+    padding: 1rem;
+    border: 1px solid #e4d236;
+    font-family: inherit;
+    font-size: 100%;
+    cursor: pointer;
+}
+
+input[type=date]:focus,
+input[type=number]:focus,
+select:focus {
+    border: 1px solid #e4d236;
+}
+
+#schedulebt {
+    width: 100%;
+    background: none;
+    border: 1px solid #e4d236;
+    border-radius: .25rem;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 100%;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    transition: all .07s linear;
+}
+
+#schedulebt:hover {
+    background-color: #e4d236;
+}
+
+/*  PROPERTIES FOR DESCRIPTION MODAL  */
+
+.description-entry {
+    position: relative;
+    display: none;
+}
+
+.sched-ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    padding: .75rem 1rem;
+    background-color: #e4d236;
+    /*text-align: center;*/
+    /*font-weight: 700;*/
+    border-radius: 0 0 3rem 0;
+}
+
+.ribbon_text {
+    width: 90%;
+}
+
+.sandbox-modal {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow-y: auto;
+    padding: 6rem 0;
+}
+
+.sandbox-modal_adding,
+.sandbox-modal_editing {
+    padding: 0;
+    overflow: auto;
+}
+
+.description_contain {
+    width: 600px;
+    background-color: #ffffff;
+    margin: auto;
+}
+
+.banner-box {
+    width: 100%;
+    height: 500px;
+    background-color: #555555;
+    margin-bottom: 2rem;
+}
+
+.caption-box > p {
+    margin-bottom: 1rem;
+}
+
+.options-sandbox {
+    position: absolute;
+    left: .5rem;
+    bottom: .3rem;
+}
+
+.option-box {
+    background-color: #dddddd;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    text-align: left;
+    line-height: 3rem;
+    margin-bottom: .25rem;
+    cursor: pointer;
+    position: relative;
+    transition: all .15s ease-out;
+}
+
+.option-box:hover {
+    width: 7rem;
+}
+
+.option-box span {
+    position: absolute;
+    left: 3rem;
+}
+
+.option_logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    /*background-color: #eeeeee;*/
+    border-radius: 50%;
+    position: absolute;
+    margin: .75rem;
+}
+
+.edit:hover {
+    background-color: #e4d236;
+}
+
+.logo-pen {
+    transform: rotate(45deg);
+}
+
+.logo-pen > div {
+    position: absolute;
+    left: 33%;
+}
+
+.pen_top {
+    width: .5rem;
+    border: .1rem solid #333333;
+}
+
+.pen_body {
+    width: .5rem;
+    height: 1rem;
+    top: 13%;
+    border: .1rem solid #333333;
+}
+
+.pen_tip {
+    width: .5rem;
+    top: 83%;
+    border-top: .25rem solid #333333;
+    border-left: .25rem solid transparent;
+    border-right: .25rem solid transparent;
+    border-bottom: .25rem solid transparent;
+}
+
+.delete:hover {
+    background-color: #f57070;
+}
+
+.logo-stop > div {
+    position: absolute;
+}
+
+.stop_circle {
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    border: .1rem solid #333333;
+    border-radius: 50%;
+}
+
+.stop_line {
+    width: .1rem;
+    height: 88%;
+    border: .1rem solid #333333;
+    top: 5%;
+    left: 40%;
+    transform: rotate(40deg);
+}
+
+/**********HISTORY PROPERTIES*********/
+.list-scroll {
+    overflow: auto;
+    background-color: #ffffff;
+}
+
+.list-history {
+    width: 100%;
+}
+
+.list_header {
+    height: 4rem;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 0 1rem .5rem rgba(0,0,0,.05);
+    z-index: 4;
+}
+
+.hist_sandbox {
+    width: 8in;
+    height: 100%;
+    margin: auto;
+    /*background-color: #999999;*/
+}
+
+.delete-button_box {
+    float: right;
+    line-height: 4rem;
+}
+
+.delete_icon-box {
+    width: 2rem;
+    height: 1.75rem;
+    margin-left: .5rem;
+    margin-top: 1.12rem;
+    /*background-color: #dddddd;*/
+    float: right;
+    position: relative;
+}
+
+.delete_icon-box div {
+    position: absolute;
+}
+
+.lid_handle {
+    left: 40%;
+    width: .35rem;
+    height: .15rem;
+    background-color: #777777;
+}
+
+.lid_cover {
+    width: 80%;
+    height: .15rem;
+    border-radius: .1rem;
+    left: 10%;
+    top: 10%;
+    background-color: #777777;
+}
+
+.body_main {
+    background-color: rgba(0,0,0,0);
+    width: 65%;
+    height: 70%;
+    top: 23%;
+    left: 17.5%;
+    border-left: .15rem solid #777777;
+    border-right: .15rem solid #777777;
+    border-bottom: .15rem solid #777777;
+    border-radius: 0 0 .2rem .2rem;
+}
+
+.body_groove1,
+.body_groove2 {
+    width: .15rem;
+    height: 50%;
+    background-color: #777777;
+    top: 25%;
+}
+
+.body_groove1 {
+    left: 33%;
+}
+
+.body_groove2 {
+    right: 33%;
+}
+
+.hist_sandbox > h2 {
+    margin: 0;
+    line-height: 4rem;
+    text-align: left;
+}
+
+.list_box {
+    padding-top: 6rem;
+    position: relative;
+    z-index: 0;
+}
+
+.hist-items {
+}
+
+.item_hist {
+    width: 100%;
+    height: 50px;
+    background-color: #999999;
+}
+
+/*****END OF HISTORY PROPERTIES*******/
+
+::selection {
+    background: #efde4c;
+}
+
+@media screen and (max-width: 1130px) {
+    .options-sandbox {
+        top: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .text {
+        width: 100%;
+    }
+
+    .image {
+        display: none;
+    }
+
+    .sandbox-modal {
+        width: 100%;
+    }
+
+    .description_contain,
+    .fields-box {
+        width: 500px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .sandbox {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .left {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .text {
+        width: 75%;
+    }
+
+    .image {
+        display: block;
+    }
+
+    .right {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    .modal-pages {
+        position: absolute;
+        z-index: 5;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .dialog_login {
+        width: 100%;
+        height: 100%;
+    }
+}
