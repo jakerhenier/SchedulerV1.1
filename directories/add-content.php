@@ -14,10 +14,11 @@ if (isset($_POST['submit'])) {
                         VALUES (NULL, '$caption', '$image', '$groups', '$date_schedule', '$hour', '$minute', '$type_of_day', CURRENT_TIMESTAMP)");
       //$res = mysqli_query($conn,$result);
        // echo $res;
+   
 }
 ?>
-        <script>
-            window.alert('Post added successfully!');
-            window.history.back();
-        </script>
+    <script>
+        window.alert('Post added successfully!');
+        window.history.back();
+    </script>
 <?php ?>

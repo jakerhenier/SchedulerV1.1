@@ -241,6 +241,7 @@ p {
     height: 2rem;
     width: 2rem;
     position: relative;
+    margin: 0;
 }
 
 .schedule-text {
@@ -587,10 +588,23 @@ input[type=file] {
 
 .img-prev_box {
     width: 100%;
-    height: 3rem;
+    height: fit-content;
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
+    position: relative;
+    padding: .25rem .25rem 0;
+}
+
+#blah {
+    max-width: 2in;
+    max-height: 2in;
+    position: absolute;
+}
+
+.img-prev_box p {
+    text-align: center;
+    margin: .5rem 0;
 }
 
 .pages-list {
@@ -830,11 +844,12 @@ select:focus {
 }
 
 .list_header {
+    width: 100%;
     height: 4rem;
-    position: absolute;
+    position: fixed;
     top: 0;
     box-shadow: 0 0 1rem .5rem rgba(0,0,0,.05);
-    z-index: 4;
+    z-index: 99;
 }
 
 .hist_sandbox {
@@ -919,13 +934,41 @@ select:focus {
     z-index: 0;
 }
 
-.hist-items {
+.hist-items_list {
+    position: relative;
+    z-index: -1;
 }
 
 .item_hist {
     width: 100%;
-    height: 50px;
-    background-color: #999999;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-bottom: 2rem;
+    /*background-color: #999999;*/
+}
+
+.item_hist-text {
+    width: 70%;
+}
+
+.item_hist-image {
+    width: 27%;
+    height: 100%;
+    /*flex-grow: 1;*/
+    position: absolute;
+    right: 0;
+    background-color: #aaaaaa;
+}
+
+.hist-sched_icon {
+    position: absolute;
+}
+
+.sched_hist {
+    padding-left: 2rem;
+    line-height: 2.5rem;
 }
 
 /*****END OF HISTORY PROPERTIES*******/

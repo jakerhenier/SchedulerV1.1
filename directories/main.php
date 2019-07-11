@@ -69,11 +69,6 @@
                                     ?>
                                 </div>
                             </div>
-                            <div class="interact menu">
-                                <div class="dot top"></div>
-                                <div class="dot mid"></div>
-                                <div class="dot bottom"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,11 +109,27 @@
                                             <div class="addbt vertical-line add-img_icon"></div>
                                             <div class="addbt horizontal-line add-img_icon"></div>
                                             add images
-                                            <input type="file" name="image" id="img" scr ="#" accept="image/*">
-
+                                            <input type="file" name="image" id="image" scr ="#" accept="image/*" onchange="readURL(this);" />
                                         </div>
-                                        <div class="img-prev_box">
+                                        <div class="img-prev_box" id="img-preview_box">
+                                            <img id="blah" src="../resources/images/no-img.png" alt="your image" />
+                                            <p>no image selected.</p>
                                             <!-- PREVIEWS ARE SHOWN HERE -->
+                                            <script>
+                                                 function readURL(input) {
+                                                    if (input.files && input.files[0]) {
+                                                        var reader = new FileReader();
+
+                                                        reader.onload = function (e) {
+                                                            $('#blah')
+                                                                .attr('src', e.target.result);
+                                                        };
+
+                                                        reader.readAsDataURL(input.files[0]);
+                                                    }
+                                                }
+                                            </script>
+                                            
                                         </div>
                                     </label>
                                 </div>
@@ -161,9 +172,9 @@
                                             <div class="addbt vertical-line add-img_icon"></div>
                                             <div class="addbt horizontal-line add-img_icon"></div>
                                             add images
-                                            <input type="file" name="image" id="" accept="image/*" value="<?php echo $update_image;?>">
+                                            <input type="file" name="image" id="add-img-input" accept="image/*" > value="<?php echo $update_image;?>">
                                         </div>
-                                        <div class="img-prev_box">
+                                        <div class="img-prev_box" id="img-prev_box">
                                             <!-- PREVIEWS ARE SHOWN HERE -->
                                         </div>
                                     </label>
@@ -254,5 +265,6 @@
         </div>
 
         <script src="../resources/scripts/script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     </body>
 </html>

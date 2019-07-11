@@ -6,6 +6,5 @@ if (!$conn) {
 }
 else{
 
-	header('schedulerv1/directories/main.html');
 }
 ?> 

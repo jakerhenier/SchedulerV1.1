@@ -45,7 +45,7 @@ function openDescription() {
 }
 
 function confirmDelete() {
-	console.log('deleting...');
+	// console.log('deleting...');
 	if (deletePopup.style.display = 'none') {
 		deletePopup.style.display = 'grid';
 	}
@@ -56,4 +56,17 @@ function closeModal() {
     	modalItems[x].style.display = 'none';
 	}
 	closeButton.style.display = 'none';
+}
+
+function showPreview() {
+	let previewGet = document.getElementById('add-img-input');
+	let previewArea = document.getElementById('img-prev_box');
+
+	previewGet.addEventListener('change', getFileName);
+
+	function getFileName( event ) {
+		let input = event.srcElement;
+		let fileName = input.files[0].name;
+		previewArea.textContent = fileName;
+	}
 }
