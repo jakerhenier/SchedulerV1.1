@@ -43,15 +43,15 @@
                                         $result=$conn->query($sql);
                                         while($row = $result->fetch_assoc())
                                         echo $row["caption"];   
-                                ?>s
+                                ?>
                             </div>
                             <div class="preview image">
                                 <?php
-                                $sql2="SELECT image FROM content";
-                                    $result=$conn->query($sql2);
-                                    while($row = $result->fetch_assoc())
-                                    echo $row["image"];  
-                                ?>
+                                        $sql="SELECT image FROM content WHERE ID=1";
+                                        $result=$conn->query($sql);
+                                        while($row = $result->fetch_assoc())
+                                        echo $row["image"]; 
+                                ?> 
                             </div>
                         </div>
                         <div class="post-interact">
@@ -63,9 +63,13 @@
                                     <div class="icon_cal cal-head"></div>
                                 </div>
                                 <div class="schedule-text">
-                                    <p id="schedule">July 1, 2019 / 8:00 AM</p>
+                                    <p id="schedule"></p>
                                     <?php 
-
+                                     // 'name' => '{"name": "'.str_repeat("a", 1000).'"}' // <-- OK
+                                        $sql="SELECT dateToPost,hour,minute,daytype FROM content WHERE ID=1";
+                                        $result=$conn->query($sql);
+                                        while($row = $result->fetch_assoc())
+                                        echo $row["dateToPost"];
                                     ?>
                                 </div>
                             </div>
@@ -96,7 +100,7 @@
                 </div>
 
                 <!-- COMPOSITION FORM -->
-                <div class="modal-pages add-entry" id="adding-form">
+                <div class="modal-pages add-entry" id="adding-form" enctype="multipart/form-data">
                     <div class = "sandbox-modal sandbox-modal_adding">
                         <h2>Compose your post</h2>
                         <div class="fields-box">
@@ -109,25 +113,42 @@
                                             <div class="addbt vertical-line add-img_icon"></div>
                                             <div class="addbt horizontal-line add-img_icon"></div>
                                             add images
-                                            <input type="file" name="image" id="image" scr ="#" accept="image/*" onchange="readURL(this);" />
+                                            <input type="file" name="image[]" id="image" scr ="#" accept="image/*" onchange="readURL(this);" multiple />
                                         </div>
                                         <div class="img-prev_box" id="img-preview_box">
                                             <img id="blah" src="../resources/images/no-img.png" alt="your image" />
-                                            <p>no image selected.</p>
+                                            <p>no image selected</p>
                                             <!-- PREVIEWS ARE SHOWN HERE -->
+                                            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
                                             <script>
-                                                 function readURL(input) {
-                                                    if (input.files && input.files[0]) {
-                                                        var reader = new FileReader();
-
-                                                        reader.onload = function (e) {
-                                                            $('#blah')
-                                                                .attr('src', e.target.result);
-                                                        };
-
-                                                        reader.readAsDataURL(input.files[0]);
-                                                    }
-                                                }
+                                                 $(function () {
+                                                        $("#image").change(function () {
+                                                            if (typeof (FileReader) != "undefined") {
+                                                                var dvPreview = $("#img-preview_box");
+                                                                dvPreview.html("");
+                                                                var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                                                                $($(this)[0].files).each(function () {
+                                                                    var file = $(this);
+                                                                    if (regex.test(file[0].name.toLowerCase())) {
+                                                                        var reader = new FileReader();
+                                                                        reader.onload = function (e) {
+                                                                            var img = $("<img />");
+                                                                            img.attr("style", "height:100px;width: 100px");
+                                                                            img.attr("src", e.target.result);
+                                                                            dvPreview.append(img);
+                                                                        }
+                                                                        reader.readAsDataURL(file[0]);
+                                                                    } else {
+                                                                        alert(file[0].name + " is not a valid image file.");
+                                                                        dvPreview.html("");
+                                                                        return false;
+                                                                    }
+                                                                });
+                                                            }/* else {
+                                                                alert("This browser does not support HTML5 FileReader.");
+                                                            }*/
+                                                        });
+                                                    });
                                             </script>
                                             
                                         </div>
